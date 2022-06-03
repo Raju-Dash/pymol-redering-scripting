@@ -1,0 +1,38 @@
+# selects atoms that are part of chain A, but not residue number 125.
+select chain A and (not resi 125)
+
+# The following two selections are equivalent, 
+select (name CB or name CG1 or name CG2) and chain A
+
+# select c-beta's, c-gamma-1's and c-gamma-2's 
+# that are in chain A.
+select name CB+CG1+CG2 and chain A
+
+# select all residues within 5 Ang. or any organic small molecules
+select br. all within 5 of organic
+
+# select helices
+select ss 'H'
+
+# select anything shown as a line
+select rep lines
+
+# select all residues with a b-factor less than 20, within 3 angstroms of any water
+select br. b<20 & (all within 3 of resn HOH)
+
+# select anything colored blue
+select color blue
+
+# select the 1st arginine
+select first resn ARG
+
+# select 1foo's segment G's chain X's residue 444's alpha carbon
+select 1foo/G/X/444/CA
+# same thing
+select 1foo and segi G and c. X and i. 444 and n. CA
+
+# select the entire object that residue 23's beta caron is in:
+select bo. i. 23 and n. CA
+
+# select the molecule that chain C is in
+select bm. c. C
